@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { provideTranslocoScope } from '@ngneat/transloco';
 import 'zone.js';
 
 const loader = ['he', 'en'].reduce((ac, lang) => {
@@ -10,7 +11,7 @@ const loader = ['he', 'en'].reduce((ac, lang) => {
 @Component({
   selector: 'app-root',
   standalone: true,
-  providers: [],
+  providers: [provideTranslocoScope({scope: 'ba', loader})],
   template: `
     <h1>Hello from {{ name }}!</h1>
     <a target="_blank" href="https://angular.dev/overview">
